@@ -948,14 +948,14 @@ files = [
 
 [[package]]
 name = "django-htmx"
-version = "1.12.1"
+version = "1.13.0"
 description = "Extensions for using Django with htmx."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "django-htmx-1.12.1.tar.gz", hash = "sha256:52b170e80ef54757f622a3af5f6087af395cda932531c0d3a65fb08d60457c0a"},
-    {file = "django_htmx-1.12.1-py3-none-any.whl", hash = "sha256:ff378eddec0a8e592d0b33f9848f6a050fe93e404a6e99cec354d67aab16c765"},
+    {file = "django-htmx-1.13.0.tar.gz", hash = "sha256:848c3e195b8757656626c8a099f9be59c6d30f468f1d54e69f0f2a48f0a14928"},
+    {file = "django_htmx-1.13.0-py3-none-any.whl", hash = "sha256:781a59376d769aa28302619e73d37d481a125ab155d9fdd7fb17f10e7d25f352"},
 ]
 
 [package.dependencies]
@@ -2565,4 +2565,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "c157be0867652167f28b44c517d6e1de20b0638cf3b0d42450c099cfb45e8613"
+content-hash = "37c1b146c653f42d71794c8bffe045816fcd4fcad89bbb08d3934eedd5df6163"
