@@ -1,0 +1,40 @@
+stages:
+  - publish
+  - deploy
+
+variables:
+  TAG_COMMIT_REF_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  DEPLOY_DIR: "/etc/blackbox/{{cookiecutter.project_name}}"
+  SERVER_USER: "bbdeploy"
+  SERVER_IP: "prod.blackbox.ms"
+
+publish:
+  tags:
+    - build
+  stage: publish
+  script:
+    - echo $TAG_COMMIT_REF_NAME
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker pull $TAG_COMMIT_REF_NAME || true
+    - docker build --cache-from $TAG_COMMIT_REF_NAME -t $TAG_COMMIT_REF_NAME  . || docker build -t $TAG_COMMIT_REF_NAME  .
+    - docker push $TAG_COMMIT_REF_NAME
+  except:
+    - schedules
+
+deploy:
+  tags:
+    - ssh
+  stage: deploy
+  script:
+    - ssh $SERVER_USER@$SERVER_IP mkdir -p "$DEPLOY_DIR"
+    - scp docker-compose.yml "$SERVER_USER@$SERVER_IP":"$DEPLOY_DIR"/docker-compose.yml
+    - ssh $SERVER_USER@$SERVER_IP "sudo docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+    - ssh $SERVER_USER@$SERVER_IP "sudo docker-compose -f $DEPLOY_DIR/docker-compose.yml pull"
+    - ssh $SERVER_USER@$SERVER_IP "sudo docker-compose -f $DEPLOY_DIR/docker-compose.yml up -d --force-recreate --remove-orphans"
+  environment:
+    name: production
+    url: https://{{cookiecutter.project_name}}.blackbox.ms
+  only:
+    - main
+  except:
+    - schedules

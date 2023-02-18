@@ -1,0 +1,13 @@
+{% extends "http_errors/base.html" %}
+{% load i18n %}
+
+{{ block.super }}
+{% block title %}Error 404{% endblock title %}
+
+{% block small_heading %}{% trans 'Error 404' %}{% endblock small_heading %}
+{% block big_heading %}
+{% trans "Not found." %}
+{% endblock big_heading %}
+{% block reason %}
+{% trans 'Please check the address or return to the homepage!' %}
+{% endblock reason %}

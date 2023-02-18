@@ -1,0 +1,49 @@
+# See https://pre-commit.com/ for usage and config
+exclude: "docs|node_modules|migrations|.git|.tox|.venv"
+fail_fast: true
+repos:
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        stages: [commit]
+        language: system
+        entry: isort
+        types: [python]
+        args: ["--profile", "black"]
+
+      - id: black
+        name: black
+        stages: [commit]
+        language: system
+        entry: black
+        types: [python]
+
+      - id: eslint
+        name: eslint
+        stages: [commit]
+        language: system
+        entry: eslint -c ./.eslintrc.js static/js
+        pass_filenames: false
+
+      - id: flake8
+        name: flake8
+        stages: [commit]
+        language: system
+        entry: flake8
+        types: [python]
+        exclude: setup.py
+
+      - id: djlint
+        name: djlint
+        stages: [commit]
+        language: system
+        entry: djlint
+        types: [html]
+
+      - id: pytest-push
+        name: Test with pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        stages: [push]

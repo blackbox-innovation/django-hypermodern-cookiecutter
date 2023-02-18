@@ -1,0 +1,107 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = ""
+authors = ["Krystof Beuermann <krystof@blackbox.ms>", "Pia Bönnemann <pia@blackbox.ms>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django-crispy-forms = "^1.9.1"
+boto3 = "^1.14.7"
+django-storages = "^1.9.1"
+django-environ = "^0.4.5"
+gunicorn = "^20.0.4"
+whitenoise = {extras = ["brotli"], version = "^5.1.0"}
+django-model-utils = "^4.0.0"
+django-dynamic-filenames = {extras = ["slugify"], version = "^1.1.4"}
+django-anymail = {extras = ["mailjet"], version = "^8.4"}
+django-axes = "^5.4.3"
+psycopg2 = "^2.8.5"
+install = "^1.3.3"
+sentry-sdk = ">=0.16.5"
+crispy-bootstrap5 = "^0.5"
+django-watchman = "^1.2.0"
+redis = "^3.5.3"
+celery = "^5.2.1"
+django-celery-results = "^2.2.0"
+django-stdimage = "^5.3.0"
+Pillow = "^9.0.1"
+Django = "^3.2.13"
+django-react-templatetags = "^7.0.0"
+djangorestframework = "^3.13.1"
+django-compressor = "^4.0"
+django-baton = "^2.3.0"
+django-select2 = "^7.10.0"
+django-allauth = "^0.51.0"
+django-htmx = "^1.12.0"
+django-typed-models = "^0.11.1"
+drf-writable-nested = "^0.6.4"
+django-clone = "^3.0.3"
+django-cleanup = "^6.0.0"
+
+[tool.poetry.dev-dependencies]
+factory_boy = "^2.12.0"
+django-test-plus = "^1.4.0"
+django-debug-toolbar = "^2.2"
+flake8 = "^3.8.3"
+pytest = "^5.4.3"
+pytest-django = "^3.9.0"
+coverage = "^5.1"
+pytest-cov = "^2.10.0"
+isort = "^5.3.0"
+flake8-bugbear = "^20.1.4"
+dj-inmemorystorage = "^2.1.0"
+pre-commit = "^2.6.0"
+Faker = "^4.1.1"
+safety = "^1.10.3"
+requests-mock = "^1.9.3"
+djlint = "^1.1.1"
+black = "^22.3.0"
+django-rich-logging = "^0.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+djlint = "^1.19.6"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 119
+combine_as_imports = true
+
+[tool.black]
+line-length = 119
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+  | node_modules
+)/
+'''
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.pyright]
+include = ["{{cookiecutter.project_name}}"]
+exclude = ["**/node_modules",
+    "**/__pycache__",
+]
+
+[tool.djlint]
+ignore = "H017,H030,H031,H006,H021,D018,H024,H026"
+extension = "html"
+profile="django"
+extend_exclude="htmlcov"
+linter_output_format="{filename}:{line}: {code} {message} {match}"

@@ -1,0 +1,48 @@
+name: pytest
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: demodb
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Generate project from cookiecutter
+        run: |
+          pip install cookiecutter
+          cookiecutter --no-input .
+
+      - name: Install dependencies
+        working-directory: ./DjangoHypermodernCookiecutter
+        run: |
+          poetry install
+
+      - name: Run tests
+        working-directory: ./DjangoHypermodernCookiecutter
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/demodb
+          DJANGO_SECRET_KEY: secret
+
+        run: |
+          poetry run pytest

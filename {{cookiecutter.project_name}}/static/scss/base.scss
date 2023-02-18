@@ -1,0 +1,14 @@
+@import "vendor/all";
+
+@import "layouts/all";
+@import "core/all";
+@import "components/all";
+
+.hover-button button {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.hover-button:hover button {
+  opacity: 1;
+}

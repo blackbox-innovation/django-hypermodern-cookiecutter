@@ -1,0 +1,13 @@
+{
+  "project_name": "DjangoHypermodernCookiecutter",
+  "_copy_without_render": [
+    "*.js",
+    "*.ts",
+    "*.tsx",
+    "*.txt",
+    "*.html",
+    "*.png",
+    "*.ico",
+    ".git/**"
+  ]
+}

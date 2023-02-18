@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  web:
+    image: git.blackbox.ms:4567/blackbox-ventures/{{cookiecutter.project_name}}:main
+    volumes:
+      - /var/run/postgresql:/var/run/postgresql
+    container_name: {{ cookiecutter.project_name }}
+    entrypoint: /home/pn/cmds/entrypoint
+    command: /home/pn/cmds/start
+    expose:
+      - 8000
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{cookiecutter.project_name}}.rule=Host(`{{cookiecutter.project_name}}.blackbox.ms`)"
+    networks:
+      - blackbox-main
+    cap_drop:
+      - ALL
+    restart: always
+networks:
+  blackbox-main:
+    external: true

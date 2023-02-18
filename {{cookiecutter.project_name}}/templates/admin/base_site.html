@@ -1,0 +1,34 @@
+{% extends "admin/base.html" %}
+{% load static baton_tags %}
+{% load i18n %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock title %}
+
+{% block extrahead %}
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<script src="{% static 'baton/baton.min.js' %}"></script>
+{% comment %} <script src="http://localhost:8080/static/baton/app/dist/baton.min.js"></script> {% endcomment %}
+{% baton_config as conf %}
+{{ conf | json_script:"baton-config" }}
+<script>
+  (function($, undefined) {
+    $(document).ready(function() {
+      Baton.init(JSON.parse(document.getElementById('baton-config').textContent));
+    })
+  })(jQuery, undefined)
+</script>
+
+{% endblock extrahead %}
+
+{% block branding %}
+<a href="{% url 'admin:index' %}"><img style="margin-top: 40px;margin-bottom: 30px;" src="{% static 'core/images/admin-logo.png' %}" alt="admin logo" height="67"></a>
+
+{% endblock branding %}
+
+{% block nav-global %}{% endblock nav-global %}
+
+{% block footer %}
+
+{% footer %}
+{% endblock footer %}

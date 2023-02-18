@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+# migrate
+poetry run python /home/pn/manage.py migrate --settings={{cookiecutter.project_name}}.settings.prod
+
+# run gunicorn
+DJANGO_SETTINGS_MODULE={{cookiecutter.project_name}}.settings.prod poetry run gunicorn {{cookiecutter.project_name}}.wsgi:application --timeout 120 --chdir=/home/pn --bind 0.0.0.0:$PORT

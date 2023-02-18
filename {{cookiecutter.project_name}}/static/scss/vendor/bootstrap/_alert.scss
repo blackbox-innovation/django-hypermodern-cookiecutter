@@ -1,0 +1,33 @@
+.alert-success {
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11);
+  border: solid 1px rgba(65, 198, 118, 0.36);
+  background-color: #ebf7ee;
+  button.btn-close {
+    background: transparent escape-svg($btn-close-bg) center / $btn-close-width
+      auto no-repeat; // include transparent for button elements
+  }
+}
+.alert-warning {
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11);
+  border: solid 1px $orange-300;
+  background-color: $orange-100;
+}
+.alert-danger {
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11);
+  border: solid 1px rgba(255, 90, 80, 0.36);
+  background-color: rgba(255, 90, 80, 0.1);
+  button.btn-close {
+    background: transparent escape-svg($btn-close-bg-red) center /
+      $btn-close-width auto no-repeat; // include transparent for button elements
+  }
+}
+
+.alert-primary {
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11);
+  border: solid 1px $indigo-400;
+  background-color: $indigo-100;
+  button.btn-close {
+    background: transparent escape-svg($btn-close-bg-primary) center /
+      $btn-close-width auto no-repeat; // include transparent for button elements
+  }
+}

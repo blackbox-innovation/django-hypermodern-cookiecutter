@@ -1,0 +1,11 @@
+@import "./core";
+
+.htmx-display-indicator {
+  display: none;
+}
+.htmx-request .htmx-display-indicator {
+  display: block;
+}
+.htmx-request.htmx-display-indicator {
+  display: block;
+}

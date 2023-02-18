@@ -1,0 +1,11 @@
+[run]
+include = {{cookiecutter.project_name}}/*
+omit =
+    *apps.py,
+    *migrations/*,
+    *settings*,
+    *.venv*,
+    *tests/*,
+    *urls.py,
+    *wsgi.py,
+    manage.py

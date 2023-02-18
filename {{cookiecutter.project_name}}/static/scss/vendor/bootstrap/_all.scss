@@ -1,0 +1,29 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+
+// Variable overrides first
+@import "./variables";
+
+// Then import Bootstrap
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+// overrides that cannot be made throug bootstrap
+@import "./overrides";
+@import "./alert";
+@import "./form-icon";
+
+@import "./toasts";
+
+// select2 core
+@import "../../../../node_modules/select2/src/scss/core";
+
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/variables";
+// select2-bootstrap5
+@import "./select2_bootstrap_5_theme_overrides";
+
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/layout";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/dropdown";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/single";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/multiple";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/disabled";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/input-group";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/validation";
+@import "../../../../node_modules/select2-bootstrap-5-theme/src/sizing";

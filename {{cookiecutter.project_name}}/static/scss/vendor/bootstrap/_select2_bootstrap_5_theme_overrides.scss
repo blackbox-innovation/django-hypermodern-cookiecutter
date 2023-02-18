@@ -1,0 +1,108 @@
+$s2bs5-item-active-bg: $form-select-bg !default;
+$s2bs5-item-hover-bg: $indigo-200 !default;
+$s2bs5-item-focus-bg: $indigo-200 !default;
+
+//resize and optimize remove option
+.select2-selection__choice__remove {
+  color: transparent !important;
+  filter: brightness(0) invert(1) !important;
+  background-size: 10px !important;
+  margin-left: 0px !important;
+}
+// restyle smaller multi select
+.select2-container--bootstrap-5 {
+  .select2-selection--multiple {
+    .select2-selection__rendered {
+      margin-right: 20px !important;
+      .select2-selection__choice {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-right: 0.375 !important;
+        padding-left: 0.375 !important;
+      }
+    }
+  }
+}
+.form-select-lg ~ .select2-container--bootstrap-5 {
+  .select2-selection--multiple {
+    .select2-selection__rendered {
+      .select2-selection__choice {
+        padding: 0.4375rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+  }
+}
+// restyle choices
+.select2-container--bootstrap-5 .select2-selection__rendered {
+  align-items: center;
+  row-gap: 6px;
+  .select2-search--inline {
+    width: initial !important;
+  }
+  .select2-selection__choice {
+    display: block !important;
+    background-color: var(--bs-dark);
+    color: white !important;
+    font-size: 16px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 16px !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+.form-select-lg ~ .select2-container--bootstrap-5 .select2-selection--single {
+  min-height: 50px !important;
+}
+
+.select2-container--bootstrap-5 .select2-selection--multiple {
+  padding-top: 6px !important;
+}
+
+.form-select-lg ~ .select2-container--bootstrap-5 .select2-selection--multiple {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  min-height: 50px !important;
+}
+
+.form-select-lg
+  ~ .select2-container--bootstrap-5
+  .select2-selection--single
+  .select2-search,
+.form-select-lg
+  ~ .select2-container--bootstrap-5
+  .select2-selection--single
+  .select2-search
+  .select2-search__field,
+.form-select-lg
+  ~ .select2-container--bootstrap-5
+  .select2-selection--multiple
+  .select2-search,
+.form-select-lg
+  ~ .select2-container--bootstrap-5
+  .select2-selection--multiple
+  .select2-search
+  .select2-search__field {
+  min-height: 38px !important;
+}
+
+// do not display border. could not figure out how to do this in variables
+.select2-dropdown {
+  border: 0 !important;
+}
+
+.select2-results__option[aria-selected="true"] {
+  background-color: $dark !important;
+  color: white !important;
+}
+.select2-selection--multiple {
+  padding: $s2bs5-padding-y $s2bs5-indicator-padding $s2bs5-padding-y
+    $s2bs5-padding-x;
+  background-image: escape-svg($s2bs5-indicator);
+  background-repeat: no-repeat;
+  background-position: $s2bs5-bg-position;
+  background-size: $s2bs5-bg-size;
+}

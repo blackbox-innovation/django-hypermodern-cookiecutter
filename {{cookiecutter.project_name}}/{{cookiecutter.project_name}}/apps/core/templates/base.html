@@ -1,0 +1,42 @@
+{% load static i18n %}
+{% load compress %}
+<!doctype html>
+<html lang="en" class="{% block css_html %}{% endblock css_html %}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>insert title here</title>
+    <!-- CSS files -->
+    {% block extrahead %}
+      {% compress css %}
+        <link rel="stylesheet"
+              href="{% static "scss/base.scss" %}"
+              type="text/x-scss"
+              charset="utf-8">
+      {% endcompress %}
+    {% endblock extrahead %}
+  </head>
+  <body>
+    <div class="d-flex flex-column min-vh-100">
+      {% block nav %}
+      {% endblock nav %}
+      {% include '_messages.html' with messages=messages %}
+      <div class="flex-grow-1">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      {% block main_js %}
+        {% compress js %}
+          <script type="text/javascript" charset="utf-8" src="{% static "js/entrypoints/main.ts" %}" />
+{% endcompress %}
+{% endblock main_js %}
+{% block extrajs %}
+{% endblock extrajs %}
+{% block footer %}
+{% include '_footer.html' %}
+{% endblock footer %}
+</div>
+</body>
+</html>

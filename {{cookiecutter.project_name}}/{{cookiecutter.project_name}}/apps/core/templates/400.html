@@ -1,0 +1,12 @@
+{% extends "http_errors/base.html" %}
+{% load i18n %}
+
+{{ block.super }}
+{% block title %}Error 403{% endblock title %}
+{% block small_heading %}{% trans '400' %}{% endblock small_heading %}
+{% block big_heading %}
+{{ heading }}
+{% endblock big_heading %}
+{% block reason %}
+{{ reason }}
+{% endblock reason %}

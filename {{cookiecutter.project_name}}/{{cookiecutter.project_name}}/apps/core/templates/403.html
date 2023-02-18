@@ -1,0 +1,12 @@
+{% extends "http_errors/base.html" %}
+{% load i18n %}
+
+{{ block.super }}
+{% block title %}Error 403{% endblock title %}
+{% block small_heading %}{% trans '403' %}{% endblock small_heading %}
+{% block big_heading %}
+{% trans "We can't allow you to access this page..." %}
+{% endblock big_heading %}
+{% block reason %}
+{% trans 'Please check the address or return to the homepage!' %}
+{% endblock reason %}

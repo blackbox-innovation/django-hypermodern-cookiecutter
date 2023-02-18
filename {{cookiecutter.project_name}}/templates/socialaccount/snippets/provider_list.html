@@ -1,0 +1,23 @@
+{% load socialaccount %}
+{% load i18n %}
+{% load static %}
+
+{% get_providers as socialaccount_providers %}
+{% for provider in socialaccount_providers %}
+
+<form action="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}" method="post">
+  {% csrf_token %}
+  <button class="btn btn-lg btn-outline-primary w-100 mt-3 btn-social-login" data-style="zoom-in" data-spinner-color="#6322ed" type="submit">
+    {% with 'images/'|add:provider.name|add:'.png'|lower as image_static %}
+    <img src="{% static image_static %}" class="me-3" alt="{{ provider.name }}" height="24">
+    {% endwith %}
+    <span class="text-center">
+      {% blocktranslate with provider.name as provider_name trimmed %}
+      Signup with {{provider_name}}
+      {% endblocktranslate %}
+    </span>
+  </button>
+</form>
+
+{% endfor %}
+

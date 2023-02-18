@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block form %}
+  <form class="signup"
+        id="signup_form"
+        method="post"
+        action="{% url 'socialaccount_signup' %}">
+    {% csrf_token %}
+    {# form.email only exists when we use sociallogin #}
+    {% if form.email %}{{ form.email|as_crispy_field }}{% endif %}
+    {{ form.first_name|as_crispy_field }}
+    {{ form.last_name|as_crispy_field }}
+    {{ form.school|as_crispy_field }}
+    <div id="partial-data">
+      {{ form.state|as_crispy_field }}
+      {{ form.school_forms|as_crispy_field }}
+      {{ form.subjects|as_crispy_field }}
+    </div>
+    {% if redirect_field_value %}
+      <input type="hidden"
+             name="{{ redirect_field_name }}"
+             value="{{ redirect_field_value }}"/>
+    {% endif %}
+    <div class="mt-6">{{ form.accept_tos_and_privacy|as_crispy_field }}</div>
+    <button class="btn btn-lg btn-primary w-100 fs-5 mt-3" type="submit">{% translate "Sign Up now" %}</button>
+  </form>
+{% endblock form %}

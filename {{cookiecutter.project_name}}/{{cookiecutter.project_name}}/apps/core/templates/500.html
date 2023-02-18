@@ -1,0 +1,13 @@
+{% extends "http_errors/base.html" %}
+{% load i18n %}
+
+{{ block.super }}
+
+{% block title %}Error 500{% endblock title %}
+{% block small_heading %}500{% endblock small_heading %}
+{% block big_heading %}
+{% trans "You just found an error page" %}
+{% endblock big_heading %}
+{% block reason %}
+{% trans 'We are sorry but our server encountered an internal error.' %}
+{% endblock reason %}

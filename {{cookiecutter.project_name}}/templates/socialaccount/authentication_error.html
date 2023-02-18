@@ -1,0 +1,28 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block head_title %}
+  {% trans "Social Network Login Failure" %}
+{% endblock head_title %}
+{% block inner %}
+  <div>
+    <div class="card card-register">
+      <div id="card-body-register" class="card-body">
+        <h1 class="display-2 text-center">{% trans "Error" %}</h1>
+        <p class="font-size-20 text-center">
+          {% trans "Unfortunately, there was an error during registration. Please choose another method to register." %}
+        </p>
+        <div class="d-flex justify-content-center">
+          <img class="my-4"
+               src="{% static 'core/images/sad.svg' %}"
+               alt=""
+               width="150">
+        </div>
+        <div class="d-flex justify-content-end">
+          <a href="{% url 'account_signup' %}"
+             class="btn btn-primary btn-continue btn-lg">{% trans "Signup" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock inner %}

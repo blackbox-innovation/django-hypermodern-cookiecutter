@@ -1,0 +1,8 @@
+@include media-breakpoint-up(md) {
+  .toast {
+    width: $toast-max-width;
+  }
+  .toast-without-interaction {
+    width: $toast-max-width;
+  }
+}

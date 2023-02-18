@@ -1,0 +1,2 @@
+#!/bin/bash
+celery -A {{cookiecutter.project_name}} worker -Q {{cookiecutter.project_name}} -l info -B

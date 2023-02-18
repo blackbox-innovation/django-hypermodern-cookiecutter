@@ -1,0 +1,108 @@
+// overrides that cannot be customized through variables
+
+.btn-check:checked + .btn,
+.btn-check:active + .btn,
+.btn-check:hover + .btn {
+  .img-btn-check {
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+.btn:checked,
+.btn:active,
+.btn:hover {
+  .img-invert {
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+.badge.bg-primary {
+  color: $purple-100;
+}
+.badge.bg-light-primary {
+  background-color: $purple-100;
+  color: $purple;
+}
+.badge.text-bg-light-orange {
+  color: $orange-800 !important;
+}
+
+.form-control-lg {
+  min-height: 50px;
+}
+
+// show a border for form inputs when there is an error
+.was-validated .form-control:invalid,
+.form-control.is-invalid,
+.form-control.is-valid {
+  border-width: 1px;
+}
+
+// list-group
+
+// List group dark
+.list-group-item:hover {
+  img {
+    filter: brightness(100) invert(1);
+  }
+}
+.list-group-dark .list-group-item {
+  margin-bottom: 10px;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  border-radius: $border-radius;
+  transition: all 0.3s ease-in-out;
+
+  --bs-list-group-active-color: $dark;
+  --bs-list-group-bg: $dark;
+  --bs-list-group-color: white;
+  --bs-list-group-active-bg: var(--bs-gray-100);
+  --bs-list-group-active-border-color: var(--bs-gray-100);
+  --bs-list-group-border-color: transparent;
+  border-radius: 0.325rem;
+}
+.list-group-dark .list-group-item:not(.bg-danger-soft-hover) {
+  &:hover,
+  &.active {
+    color: $dark !important;
+    background-color: $white !important;
+    border-radius: 10px;
+    img {
+      filter: brightness(100) invert(1);
+    }
+  }
+}
+
+// button soft
+@mixin button-soft-variant($color, $soft-background: rgba($color, 0.1)) {
+  color: $color;
+  background-color: $soft-background;
+  &.active,
+  &:active,
+  &:focus,
+  &:hover {
+    color: color-contrast($color);
+    background-color: $color;
+    img {
+      filter: brightness(100);
+    }
+  }
+}
+@each $color, $value in $theme-colors {
+  .btn-#{$color}-soft {
+    @include button-soft-variant($value);
+  }
+}
+
+.invalid-feedback {
+  strong {
+    font-weight: 300;
+  }
+}
+
+.allowed {
+  cursor: pointer !important;
+}
+.not-allowed {
+  cursor: not-allowed !important;
+}

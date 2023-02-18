@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": ".venv/bin/python3.8",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "python.testing.pytestArgs": ["--no-cov", "-s"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true
+}

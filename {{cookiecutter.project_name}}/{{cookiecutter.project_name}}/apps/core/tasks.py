@@ -1,0 +1,1 @@
+# celery tasks for {{cookiecutter.project_name}} project

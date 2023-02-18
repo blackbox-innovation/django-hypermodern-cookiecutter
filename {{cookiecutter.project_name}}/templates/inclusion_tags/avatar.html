@@ -1,0 +1,7 @@
+<span {% if id %}id="{{ id }}" {% endif %} class="avatar avatar-{{ size }} {{ additional_classes }}" style="background-image: url('{% if size == "md" %}{{ user.profile_image_thumb_url }}{% else %}{{ user.profile_image_medium_url }}{% endif %}')">
+  {% if not user.profile_image %}
+  <div class="letters">
+    {{ user.initials }}
+  </div>
+  {% endif %}
+</span>

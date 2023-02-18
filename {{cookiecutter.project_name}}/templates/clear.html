@@ -1,0 +1,39 @@
+{% load static %}
+{% load i18n %}
+{% load compress %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>title here</title>
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'images/favicon-96x96.png' %}"
+          sizes="96x96"/>
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'images/favicon-32x32.png' %}"
+          sizes="32x32"/>
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'images/favicon-16x16.png' %}"
+          sizes="16x16"/>
+    {% block extrahead %}
+      {% compress css %}
+        <link rel="stylesheet"
+              href="{% static "scss/base.scss" %}"
+              type="text/x-scss"
+              charset="utf-8">
+      {% endcompress %}
+    {% endblock extrahead %}
+  </head>
+  <body>
+    {% block content %}
+    {% endblock content %}
+    {% block extrajs %}
+    {% endblock extrajs %}
+  </body>
+</html>

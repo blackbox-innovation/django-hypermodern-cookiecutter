@@ -1,0 +1,133 @@
+// Avatars
+$avatar-size: 2.375rem !default;
+$avatar-sizes: (
+  "xs": 1.75rem,
+  "sm": 2rem,
+  "md": 2.375rem,
+  "lg": 3.75rem,
+  "xl": 5.75rem,
+  "2xl": 7.5rem,
+) !default;
+$avatar-border-radius: 50px !default;
+
+.avatar {
+  --#{$prefix}avatar-size: #{$avatar-size};
+  --#{$prefix}avatar-bg: var(--#{$prefix}border-color-light);
+  position: relative;
+  width: var(--#{$prefix}avatar-size);
+  height: var(--#{$prefix}avatar-size);
+  font-size: calc(var(--#{$prefix}avatar-size) / #{$line-height-base * 2});
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-muted;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: bottom;
+  user-select: none;
+  background: var(--#{$prefix}avatar-bg) no-repeat center/cover;
+  border-radius: $avatar-border-radius;
+  background-size: cover;
+
+  svg {
+    width: calc(var(--#{$prefix}avatar-size) / #{divide(40, 24)});
+    height: calc(var(--#{$prefix}avatar-size) / #{divide(40, 24)});
+  }
+
+  .badge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: $border-radius-pill;
+    box-shadow: 0 0 0 2px $white;
+  }
+
+  @at-root a#{&} {
+    cursor: pointer;
+  }
+
+  .letters {
+    /* Center the content */
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $primary;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.56;
+    font-size: 13px;
+    margin-top: 1px;
+  }
+}
+.avatar-2xl {
+  .letters {
+    font-size: 46px;
+    margin-top: 4px;
+  }
+}
+.avatar-xl {
+  .letters {
+    font-size: 40px;
+    margin-top: 4px;
+  }
+}
+.avatar-md {
+  .letters {
+    font-size: 16px;
+  }
+}
+
+.avatar-rounded {
+  border-radius: 50%;
+}
+
+@each $avatar-size, $size in $avatar-sizes {
+  .avatar-#{$avatar-size} {
+    --#{$prefix}avatar-size: #{$size};
+  }
+
+  .avatar-#{$avatar-size} .badge:empty {
+    width: $size * 0.25;
+    height: $size * 0.25;
+  }
+}
+
+.avatar-list {
+  display: inline-flex;
+  padding: 0;
+  margin: 0 0 -0.5rem;
+  flex-wrap: wrap;
+
+  .avatar {
+    margin-bottom: 0.5rem;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  a.avatar {
+    &:hover {
+      z-index: 1;
+    }
+  }
+}
+
+.avatar-list-stacked {
+  .avatar {
+    margin-right: -0.5rem !important;
+    box-shadow: 0 0 0 2px var(--#{$prefix}card-bg);
+  }
+}
+
+.avatar-upload-text {
+  font-size: $h6-font-size;
+  line-height: 1;
+  margin-top: 0.25rem;
+}
+.avatar-shadow {
+  box-shadow: 0 5px 8px 0 rgba(34, 39, 64, 0.24);
+}

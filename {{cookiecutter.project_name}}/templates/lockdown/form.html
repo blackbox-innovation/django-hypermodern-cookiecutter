@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Coming soon...{% endblock title %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="page page-center">
+  <div class="container-tight py-4">
+    <div class="text-center mb-4">
+      <a href="." class="navbar-brand navbar-brand-autodark">project name</a>
+    </div>
+    <form autocomplete="off" class="card card-md" style="min-width: 300px" action="." method="post">{% csrf_token %}
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <div id="div_id_password" class="mb-3"><input type="password" name="password" class="textinput textInput form-control" required="" id="id_password"> </div>
+          {% for error in form.non_field_errors %}
+          <div class="alert alert-danger">
+            {{ error|escape }}
+          </div>
+          {% endfor %}
+          {% if form.errors %}
+          {% for field in form %}
+          {% for error in field.errors %}
+          <div class="alert alert-danger">
+            {{ error|escape }}
+          </div>
+          {% endfor %}
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary w-100">
+            <!-- Download SVG icon from http://tabler-icons.io/i/lock-open -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+              <circle cx="12" cy="16" r="1"></circle>
+              <path d="M8 11v-5a4 4 0 0 1 8 0"></path>
+            </svg>
+            {% trans "Enter" %}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+

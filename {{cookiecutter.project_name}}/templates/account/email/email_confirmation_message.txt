@@ -1,0 +1,6 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans  with site_name=current_site.name site_domain=current_site.domain %}For your security, please confirm it by clicking on the following link: {{ activate_url }}
+
+If you have not initiated this change, please inform us immediately.{% endblocktrans %}{% endautoescape %}{% endblock %}

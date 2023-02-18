@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+{% block css_html %}html__registration{% endblock css_html %}
+
+{% block content %}
+<main class="d-flex justify-content-center justify-content-xxl-between mt-4 mt-xxl-8">
+  <div class="col-left ">
+    <img alt="{% trans "illustration icon" %}" src="{% static 'core/images/future-of-teaching-illustration-desktop.png' %}" srcset="{% static 'core/images/future-of-teaching-illustration-desktop@2x.png' %} 2x,
+    {% static 'core/images/future-of-teaching-illustration-desktop@3x.png' %} 3x" />
+  </div>
+  <div class="col-right">
+    <div class="card card-register">
+      <div id="card-body-register" class="card-body">
+        <h1 class="display-2 text-center mb-0">{% block small_heading %}{% endblock small_heading %}</h1>
+
+        <p class="font-size-20 text-center">
+          {% block big_heading %}
+          {% endblock big_heading %}
+          {% block reason %}
+          {% endblock reason %}
+        </p>
+        <div class="d-flex justify-content-center">
+          <img class="my-4" src="{% static 'core/images/sad.svg' %}" alt="" width="150">
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <a href="/" class="btn btn-lg btn-primary lh-24">
+
+            <!-- Download SVG icon from http://tabler-icons.io/i/arrow-left -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <line x1="5" y1="12" x2="11" y2="18"></line>
+              <line x1="5" y1="12" x2="11" y2="6"></line>
+            </svg>
+            {% trans "Take me back" %}
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="d-xxl-none mt-6">
+  <img class="future-illustration" alt="{% trans "illustration icon" %}" src="{% static 'core/images/future-of-teaching-illustration-tablet.png' %}" srcset="{% static 'core/images/future-of-teaching-illustration-tablet@2x.png' %} 2x,
+{% static 'core/images/future-of-teaching-illustration-tablet@3x.png' %} 3x" />
+</footer>
+
+{% endblock content %}
