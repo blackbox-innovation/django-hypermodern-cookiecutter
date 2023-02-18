@@ -2,7 +2,7 @@
 
 # How to run on blackbox infrastructure
 
-1. run `cookiecutter django-hypermodern-cookiecutter` to create a new project from the template
+1. run `cookiecutter git@github.com:blackbox-ms/django-hypermodern-cookiecutter.git` to create a new project from the template
 2. run `direnv allow`
 3. run `createdb {{cookiecutter.project_name}}_dev`
 4. run `poetry install && yarn`
