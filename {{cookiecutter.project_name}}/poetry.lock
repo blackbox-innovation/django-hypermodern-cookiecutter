@@ -714,20 +714,20 @@ six = ">=1.10"
 
 [[package]]
 name = "django"
-version = "3.2.15"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+version = "4.1.7"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "Django-3.2.15-py3-none-any.whl", hash = "sha256:115baf5049d5cf4163e43492cdc7139c306ed6d451e7d3571fe9612903903713"},
-    {file = "Django-3.2.15.tar.gz", hash = "sha256:f71934b1a822f14a86c9ac9634053689279cd04ae69cb6ade4a59471b886582b"},
+    {file = "Django-4.1.7-py3-none-any.whl", hash = "sha256:f2f431e75adc40039ace496ad3b9f17227022e8b11566f4b363da44c7e44761e"},
+    {file = "Django-4.1.7.tar.gz", hash = "sha256:44f714b81c5f190d9d2ddad01a532fe502fa01c4cb8faf1d081f4264ed15dcd8"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.3.2,<4"
-pytz = "*"
+asgiref = ">=3.5.2,<4"
 sqlparse = ">=0.2.2"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
 argon2 = ["argon2-cffi (>=19.1.0)"]
@@ -1109,6 +1109,21 @@ files = [
     {file = "django-typed-models-0.11.1.tar.gz", hash = "sha256:0fe393dcc9e219024bf7fdc23cb9f3fafe1311dcd8fcf3f156bb97410d1f99e7"},
     {file = "django_typed_models-0.11.1-py2.py3-none-any.whl", hash = "sha256:03561c443a046aa1cb009b75763addfc533a421f91649d0ebd62b3897587c2f8"},
 ]
+
+[[package]]
+name = "django-upgrade"
+version = "1.13.0"
+description = "Automatically upgrade your Django project code."
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_upgrade-1.13.0-py3-none-any.whl", hash = "sha256:a313563ca690cee81f13a3f8ea7718dad0a4dc09012af25de0fd1056296ed369"},
+    {file = "django_upgrade-1.13.0.tar.gz", hash = "sha256:4054a225e12a768347790cfbeb9ea141c71fe5c74b29a8ccd5ea3fd97c8fa705"},
+]
+
+[package.dependencies]
+tokenize-rt = ">=4.1.0"
 
 [[package]]
 name = "django-watchman"
@@ -2370,6 +2385,18 @@ files = [
 ]
 
 [[package]]
+name = "tokenize-rt"
+version = "5.0.0"
+description = "A wrapper around the stdlib `tokenize` which roundtrips."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "tokenize_rt-5.0.0-py2.py3-none-any.whl", hash = "sha256:c67772c662c6b3dc65edf66808577968fb10badfc2042e3027196bed4daf9e5a"},
+    {file = "tokenize_rt-5.0.0.tar.gz", hash = "sha256:3160bc0c3e8491312d0485171dea861fc160a240f5f5766b72a1165408d10740"},
+]
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -2436,6 +2463,18 @@ python-versions = ">=3.7"
 files = [
     {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
     {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
+]
+
+[[package]]
+name = "tzdata"
+version = "2022.7"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+files = [
+    {file = "tzdata-2022.7-py2.py3-none-any.whl", hash = "sha256:2b88858b0e3120792a3c0635c23daf36a7d7eeeca657c323da299d2094402a0d"},
+    {file = "tzdata-2022.7.tar.gz", hash = "sha256:fe5f866eddd8b96e9fcba978f8e503c909b19ea7efda11e52e39494bad3a7bfa"},
 ]
 
 [[package]]
@@ -2565,4 +2604,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "37c1b146c653f42d71794c8bffe045816fcd4fcad89bbb08d3934eedd5df6163"
+content-hash = "a4150e0258698aa138a6dec76e302964bcf80f50746588dbf3372fad9dc073b2"
