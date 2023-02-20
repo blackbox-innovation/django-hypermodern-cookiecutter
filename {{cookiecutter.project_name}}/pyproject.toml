@@ -57,7 +57,7 @@ safety = "^1.10.3"
 requests-mock = "^1.9.3"
 djlint = "^1.1.1"
 black = "^22.3.0"
-django-rich-logging = "^0.1.1"
+django-rich-logging = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
