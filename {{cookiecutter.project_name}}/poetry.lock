@@ -1012,14 +1012,14 @@ ssr = ["requests"]
 
 [[package]]
 name = "django-rich-logging"
-version = "0.1.1"
+version = "0.2.0"
 description = "A prettier way to see Django requests while developing."
 category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "django-rich-logging-0.1.1.tar.gz", hash = "sha256:dfa71015ebee8f287dba8cc70fd3a26475c83a880ae864094b6097a223491ca6"},
-    {file = "django_rich_logging-0.1.1-py3-none-any.whl", hash = "sha256:39380a902b9425bd8e409a3e743265980c926d50339433855b0281e20c1103fc"},
+    {file = "django-rich-logging-0.2.0.tar.gz", hash = "sha256:6bdb066c5777fe575167d86292c4eb38391125f3b5b18969a4746c9af0a17b2f"},
+    {file = "django_rich_logging-0.2.0-py3-none-any.whl", hash = "sha256:74a4bc20eaee0ff6e318fb5f66239513bf7459d0c0ee9022331fd191f691b8b6"},
 ]
 
 [package.dependencies]
@@ -1027,7 +1027,7 @@ Django = ">3.0"
 rich = ">=11.2.0,<12.0.0"
 
 [package.extras]
-docs = ["Sphinx (>=4.3.2,<5.0.0)", "furo (>=2021.11.23,<2022.0.0)", "linkify-it-py (>=1.0.3,<2.0.0)", "myst-parser (>=0.16.1,<0.17.0)", "sphinx-autobuild (>=2021.3.14,<2022.0.0)", "sphinx-copybutton (>=0.4.0,<0.5.0)", "toml"]
+docs = ["Sphinx (>=4.3.2,<5.0.0)", "attrs (>=21.4.0,<22.0.0)", "furo (>=2021.11.23,<2022.0.0)", "linkify-it-py (>=1.0.3,<2.0.0)", "myst-parser (>=0.16.1,<0.17.0)", "sphinx-autobuild (>=2021.3.14,<2022.0.0)", "sphinx-copybutton (>=0.4.0,<0.5.0)", "toml"]
 
 [[package]]
 name = "django-select2"
@@ -2607,4 +2607,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "a4150e0258698aa138a6dec76e302964bcf80f50746588dbf3372fad9dc073b2"
+content-hash = "985e593a2742a48750069b6e68c890947a1273e65489af207e82e5f923923a97"
